@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="jumbotron">
+        <h1 class="display-4">Bem-vindo ao Sistema de Domínios!</h1>
+        <p class="lead">Este é o ponto de partida para gerenciar domínios .gw.</p>
+        <hr class="my-4">
+        <p>Acesse as funcionalidades através da barra de navegação.</p>
+        <a class="btn btn-primary btn-lg" href="{% url 'listar_dominios' %}" role="button">Listar Domínios</a>
+        <a class="btn btn-secondary btn-lg" href="{% url 'criar_dominio' %}" role="button">Criar Domínio</a>
+    </div>
+</div>
+{% endblock %}
