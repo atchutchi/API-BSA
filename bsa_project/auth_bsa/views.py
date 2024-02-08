@@ -1,5 +1,8 @@
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect, render
+from rest_framework import generics
+from .models import Domain
+from .serializers import DomainSerializer
 
 def home(request):
     # Redirecionar para a página que deseja exibir após o login
@@ -21,3 +24,17 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('login')
+
+
+from rest_framework import generics
+from .models import Domain
+from .serializers import DomainSerializer
+
+class DomainListCreateAPIView(generics.ListCreateAPIView):
+    queryset = Domain.objects.all()
+    serializer_class = DomainSerializer
+
+class DomainRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Domain.objects.all()
+    serializer_class = DomainSerializer
+
